@@ -1,0 +1,20 @@
+[
+  {
+    "first.name" : "Clark",
+    "last.name"  : "Malmgren",
+    "email"      : "cmalmgren@gmail.com",
+    "title"      : "MANAGER"
+  },
+  {
+    "first.name" : "Matt",
+    "last.name"  : "Barbour",
+    "email"      : "matt_barbour@cable.comcast.com",
+    "title"      : "MANAGER"
+  },
+  {
+    "first.name" : "David",
+    "last.name"  : "Brandyberry",
+    "email"      : "david_brandyberry@cable.comcast.com",
+    "title"      : "DIRECTOR"
+  }
+] 

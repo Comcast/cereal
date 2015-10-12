@@ -1,0 +1,26 @@
+{
+  "name"     : "ETV Java User Agent",
+  "location" : "Mill Valley, CA",
+  "members"  : [
+    {
+      "first.name" : "Clark",
+      "last.name"  : "Malmgren",
+      "email"      : "cmalmgren@gmail.com"
+    },
+    {
+      "first.name" : "Matt",
+      "last.name"  : "Barbour",
+      "email"      : "matt_barbour@cable.comcast.com"
+    },
+    {
+      "first.name" : "David",
+      "last.name"  : "Brandyberry",
+      "email"      : "david_brandyberry@cable.comcast.com",
+      "title"      : "DIRECTOR"
+    }
+  ],
+  "projects" : [
+  	"DTA",
+  	"Channelstore"
+  ]
+}

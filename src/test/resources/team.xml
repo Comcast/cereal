@@ -1,0 +1,28 @@
+<team>
+    <name>ETV Java User Agent</name>
+    <location>Mill Valley, CA</location>
+    <members>
+        <member>
+            <first.name>Clark</first.name>
+            <last.name>Malmgren</last.name>
+            <email>cmalmgren@gmail.com</email>
+            <title>MANAGER</title>
+        </member>
+        <member>
+            <first.name>Matt</first.name>
+            <last.name>Barbour</last.name>
+            <email>matt_barbour@cable.comcast.com</email>
+            <title>MANAGER</title>
+        </member>
+        <member>
+            <first.name>David</first.name>
+            <last.name>Brandyberry</last.name>
+            <email>david_brandyberry@cable.comcast.com</email>
+            <title>DIRECTOR</title>
+        </member>
+    </members>
+    <projects>
+    	<project>DTA</project>
+    	<project>Channelstore</project>
+    </projects>
+</team>

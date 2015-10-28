@@ -18,7 +18,7 @@ package com.comcast.cvs.testclasses;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.comcast.cvs.cereal.annotations.Cereal;
+import com.comcast.cereal.annotations.Cereal;
 
 public class DogMap {
 	@Cereal(type=Dog.class)

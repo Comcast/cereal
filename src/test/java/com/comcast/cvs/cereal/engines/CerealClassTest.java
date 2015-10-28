@@ -19,10 +19,11 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
-import com.comcast.cvs.cereal.Cerealizer;
-import com.comcast.cvs.cereal.ObjectCache;
-import com.comcast.cvs.cereal.annotations.CerealClass;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.Cerealizer;
+import com.comcast.cereal.ObjectCache;
+import com.comcast.cereal.annotations.CerealClass;
+import com.comcast.cereal.engines.JsonCerealEngine;
 
 public class CerealClassTest {
 

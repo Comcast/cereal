@@ -28,8 +28,12 @@ import java.util.Random;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
-import com.comcast.cvs.cereal.Cerealizer;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.Cerealizer;
+import com.comcast.cereal.engines.CerealEngine;
+import com.comcast.cereal.engines.JsonCerealEngine;
+import com.comcast.cereal.engines.XmlCerealEngine;
+import com.comcast.cereal.engines.YamlCerealEngine;
 import com.comcast.pantry.test.RandomProvider;
 import com.comcast.pantry.test.TestList;
 

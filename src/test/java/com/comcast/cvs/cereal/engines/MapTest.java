@@ -28,8 +28,9 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
-import com.comcast.cvs.cereal.CerealSettings;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.CerealSettings;
+import com.comcast.cereal.engines.JsonCerealEngine;
 import com.comcast.cvs.testclasses.Dog;
 import com.comcast.cvs.testclasses.DogMap;
 import com.comcast.cvs.testclasses.ExtendsMap;

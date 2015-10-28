@@ -13,22 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.comcast.cvs.testclasses;
+package com.comcast.cereal.annotations;
 
-import com.comcast.cereal.annotations.Cereal;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public class AnimalWrapper {
+import com.comcast.cereal.Cerealizer;
 
-	/** This won't work since Cat does not have a default constructor */
-	@Cereal(defaultObjectClass=Cat.class)
-	private Animal animal;
+/**
+ * An annotation to indicate that a specific cerealizer should be used when processing
+ * this class.
+ * 
+ * @author Clark Malmgren
+ */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface CerealClass {
 
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
+    /**
+     * The cerealizer for this class
+     * 
+     * @return the cerealizer to use
+     */
+    Class<? extends Cerealizer<?,?>> value();
 }

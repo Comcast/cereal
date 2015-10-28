@@ -26,7 +26,8 @@ import java.util.Map;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.engines.JsonCerealEngine;
 import com.comcast.cvs.testclasses.PrimitiveHolder;
 import com.comcast.pantry.test.TestList;
 

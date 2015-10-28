@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.comcast.cvs.cereal.annotations.Cereal;
+import com.comcast.cereal.annotations.Cereal;
 
 public class AnimalShelter {
 	@Cereal(defaultObjectClass=ArrayList.class, type=Animal.class)

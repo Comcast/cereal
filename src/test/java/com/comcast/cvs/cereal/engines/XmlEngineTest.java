@@ -21,6 +21,7 @@ import javax.mail.internet.InternetAddress;
 
 import org.testng.annotations.Test;
 
+import com.comcast.cereal.engines.XmlCerealEngine;
 import com.comcast.cvs.testclasses.Member;
 
 public class XmlEngineTest {

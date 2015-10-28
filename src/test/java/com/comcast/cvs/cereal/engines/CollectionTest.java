@@ -22,8 +22,9 @@ import java.util.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
-import com.comcast.cvs.cereal.CerealSettings;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.CerealSettings;
+import com.comcast.cereal.engines.JsonCerealEngine;
 
 public class CollectionTest {
 

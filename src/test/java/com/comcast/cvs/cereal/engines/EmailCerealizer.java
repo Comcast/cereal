@@ -18,9 +18,9 @@ package com.comcast.cvs.cereal.engines;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-import com.comcast.cvs.cereal.CerealException;
-import com.comcast.cvs.cereal.Cerealizer;
-import com.comcast.cvs.cereal.ObjectCache;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.Cerealizer;
+import com.comcast.cereal.ObjectCache;
 
 public class EmailCerealizer implements Cerealizer<InternetAddress, String> {
 

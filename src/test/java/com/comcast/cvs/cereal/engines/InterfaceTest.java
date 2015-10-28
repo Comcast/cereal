@@ -18,7 +18,8 @@ package com.comcast.cvs.cereal.engines;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.engines.CerealEngine;
 import com.comcast.cvs.testclasses.Animal;
 import com.comcast.cvs.testclasses.Dog;
 

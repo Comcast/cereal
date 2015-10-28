@@ -21,7 +21,8 @@ import java.util.HashMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.engines.JsonCerealEngine;
 import com.comcast.cvs.testclasses.Animal;
 import com.comcast.cvs.testclasses.AnimalShelter;
 import com.comcast.cvs.testclasses.AnimalWrapper;

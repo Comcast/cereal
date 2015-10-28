@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.comcast.cvs.testclasses;
+package com.comcast.cereal;
 
-import com.comcast.cereal.annotations.Cereal;
+import com.comcast.cereal.engines.CerealEngine;
 
-public class AnimalWrapper {
+/**
+ * Interface that all {@link Cerealizer}s should implement if they need access to the
+ * {@link CerealFactory} associated with this {@link CerealEngine}.
+ * 
+ * @author <a href="mailto:cmalmgren@gmail.com">Clark Malmgren</a>
+ */
+public interface CerealFactoryAware {
 
-	/** This won't work since Cat does not have a default constructor */
-	@Cereal(defaultObjectClass=Cat.class)
-	private Animal animal;
-
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
+    /**
+     * Notify this instance what {@link CerealFactory} is in use for this {@link CerealEngine}.
+     * 
+     * @param cerealFactory
+     *            the {@link CerealFactory} instance
+     */
+    void setCerealFactory(CerealFactory cerealFactory);
 }

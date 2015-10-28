@@ -15,7 +15,7 @@
  */
 package com.comcast.cvs.testclasses;
 
-import com.comcast.cvs.cereal.Cerealizable;
+import com.comcast.cereal.Cerealizable;
 
 public class Name implements Cerealizable<String> {
 

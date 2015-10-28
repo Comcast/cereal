@@ -15,8 +15,8 @@
  */
 package com.comcast.cvs.testclasses;
 
-import com.comcast.cvs.cereal.annotations.Cereal;
-import com.comcast.cvs.cereal.annotations.CerealObject;
+import com.comcast.cereal.annotations.Cereal;
+import com.comcast.cereal.annotations.CerealObject;
 
 @CerealObject
 public class Employee {

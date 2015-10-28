@@ -19,7 +19,8 @@ import static org.testng.Assert.assertSame;
 
 import org.testng.annotations.Test;
 
-import com.comcast.cvs.cereal.CerealException;
+import com.comcast.cereal.CerealException;
+import com.comcast.cereal.engines.JsonCerealEngine;
 
 public class RecursiveTest {
 

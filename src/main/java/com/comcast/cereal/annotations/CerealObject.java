@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.comcast.cvs.testclasses;
+package com.comcast.cereal.annotations;
 
-import com.comcast.cereal.annotations.Cereal;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
-public class AnimalWrapper {
-
-	/** This won't work since Cat does not have a default constructor */
-	@Cereal(defaultObjectClass=Cat.class)
-	private Animal animal;
-
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
-}
+/**
+ * An annotation to indicate that only {@link Field}s and {@link Method}s annotated with
+ * {@link Cereal} should be included when serializing and deserealizing.
+ * 
+ * @author Clark Malmgren
+ */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface CerealObject {}

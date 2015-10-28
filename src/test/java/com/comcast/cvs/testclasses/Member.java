@@ -17,7 +17,7 @@ package com.comcast.cvs.testclasses;
 
 import javax.mail.internet.InternetAddress;
 
-import com.comcast.cvs.cereal.annotations.Cereal;
+import com.comcast.cereal.annotations.Cereal;
 import com.comcast.cvs.cereal.engines.EmailCerealizer;
 
 public class Member {

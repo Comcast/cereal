@@ -10,6 +10,14 @@
     <description>Cereal is for converting Java object to and from JSON / XML / YAML</description>
     <url>https://github.com/Comcast/cereal</url>
     
+    <licenses>
+        <license>
+            <name>Apache License</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
     <organization>
         <name>Comcast</name>
     </organization>
@@ -77,6 +85,18 @@
                     <source>${java.compile.version}</source>
                     <target>${java.compile.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.mycila</groupId>

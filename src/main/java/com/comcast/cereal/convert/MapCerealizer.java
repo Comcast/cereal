@@ -46,7 +46,7 @@ public class MapCerealizer implements Cerealizer<Map<?, ?>, Map<?, ?>>, CerealFa
     /*
      * (non-Javadoc)
      * @see
-     * com.comcast.cvs.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cvs.cereal.CerealFactory
+     * com.comcast.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cereal.CerealFactory
      * )
      */
     public void setCerealFactory(CerealFactory cerealFactory) {
@@ -55,7 +55,7 @@ public class MapCerealizer implements Cerealizer<Map<?, ?>, Map<?, ?>>, CerealFa
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings({"unchecked" })
     public Map<?, ?> deCerealize(Map<?, ?> cereal, ObjectCache objectCache) throws CerealException {
@@ -86,7 +86,7 @@ public class MapCerealizer implements Cerealizer<Map<?, ?>, Map<?, ?>>, CerealFa
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     @SuppressWarnings({ "unchecked" })
     public Map<?, ?> cerealize(Map<?, ?> object, ObjectCache objectCache) throws CerealException {

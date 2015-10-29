@@ -42,7 +42,7 @@ public class EnumCerealizer<T extends Enum<T>> implements Cerealizer<Enum<T>, St
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public Enum<T> deCerealize(String cereal, ObjectCache objectCache) throws CerealException {
@@ -60,7 +60,7 @@ public class EnumCerealizer<T extends Enum<T>> implements Cerealizer<Enum<T>, St
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public String cerealize(Enum<T> object, ObjectCache objectCache) throws CerealException {
         return (null == object) ? null : object.name();

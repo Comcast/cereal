@@ -114,7 +114,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#getCerealFactory()
+     * @see com.comcast.cereal.engines.CerealEngine#getCerealFactory()
      */
     public CerealFactory getCerealFactory() {
         return cerealFactory;
@@ -122,7 +122,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.engines.CerealEngine#cerealize(java.lang.Object)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public Object cerealize(Object object) throws CerealException {
@@ -141,7 +141,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#cerealize(T, java.lang.Class)
+     * @see com.comcast.cereal.engines.CerealEngine#cerealize(T, java.lang.Class)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public <T> Object cerealize(T t, Class<T> clazz) throws CerealException {
@@ -160,7 +160,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#deCerealize(java.util.HashMap,
+     * @see com.comcast.cereal.engines.CerealEngine#deCerealize(java.util.HashMap,
      * java.lang.Class)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -196,7 +196,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#apply(java.util.Map, java.lang.Object)
+     * @see com.comcast.cereal.engines.CerealEngine#apply(java.util.Map, java.lang.Object)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void apply(Map<String, Object> cereal, Object target) throws CerealException {
@@ -219,7 +219,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#writeToString(java.lang.Object)
+     * @see com.comcast.cereal.engines.CerealEngine#writeToString(java.lang.Object)
      */
     public String writeToString(Object object) throws CerealException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -234,7 +234,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#writeToString(java.lang.Object,
+     * @see com.comcast.cereal.engines.CerealEngine#writeToString(java.lang.Object,
      * java.lang.Class)
      */
     public <T> String writeToString(T t, Class<T> clazz) throws CerealException {
@@ -250,7 +250,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#write(java.lang.Object, java.lang.Class,
+     * @see com.comcast.cereal.engines.CerealEngine#write(java.lang.Object, java.lang.Class,
      * java.io.Writer)
      */
     public <T> void write(T t, Class<T> clazz, Writer writer) throws CerealException {
@@ -259,7 +259,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#write(java.lang.Object, java.io.Writer)
+     * @see com.comcast.cereal.engines.CerealEngine#write(java.lang.Object, java.io.Writer)
      */
     public void write(Object object, Writer writer) throws CerealException {
         doWrite(writer, cerealize(object));
@@ -267,7 +267,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#write(T, java.lang.Class, java.io.File)
+     * @see com.comcast.cereal.engines.CerealEngine#write(T, java.lang.Class, java.io.File)
      */
     public <T> void write(T t, Class<T> clazz, File file) throws CerealException {
         OutputStream outputStream;
@@ -288,7 +288,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#write(java.lang.Object, java.io.File)
+     * @see com.comcast.cereal.engines.CerealEngine#write(java.lang.Object, java.io.File)
      */
     public void write(Object object, File file) throws CerealException {
         OutputStream outputStream;
@@ -309,7 +309,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#readFromString(java.lang.String,
+     * @see com.comcast.cereal.engines.CerealEngine#readFromString(java.lang.String,
      * java.lang.Class)
      */
     public <T> T readFromString(String string, Class<T> clazz) throws CerealException {
@@ -324,7 +324,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#readFromClasspath(java.lang.String, java.lang.Class)
+     * @see com.comcast.cereal.engines.CerealEngine#readFromClasspath(java.lang.String, java.lang.Class)
      */
     public <T> T readFromClasspath(String path, Class<T> clazz) throws CerealException {
         InputStream in = CerealEngine.class.getResourceAsStream(path);
@@ -338,7 +338,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#read(java.io.Reader, java.lang.Class)
+     * @see com.comcast.cereal.engines.CerealEngine#read(java.io.Reader, java.lang.Class)
      */
     public <T> T read(Reader reader, Class<T> clazz) throws CerealException {
         Object cereal = doRead(reader);
@@ -347,7 +347,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#read(java.io.File, java.lang.Class)
+     * @see com.comcast.cereal.engines.CerealEngine#read(java.io.File, java.lang.Class)
      */
     public <T> T read(File file, Class<T> clazz) throws CerealException {
         InputStream inputStream;
@@ -368,7 +368,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#applyFromString(java.lang.String,
+     * @see com.comcast.cereal.engines.CerealEngine#applyFromString(java.lang.String,
      * java.lang.Object)
      */
     @SuppressWarnings("unchecked")
@@ -388,7 +388,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#applyFromClasspath(java.lang.String,
+     * @see com.comcast.cereal.engines.CerealEngine#applyFromClasspath(java.lang.String,
      * java.lang.Object)
      */
     @SuppressWarnings("unchecked")
@@ -408,7 +408,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#apply(java.io.Reader, java.lang.Object)
+     * @see com.comcast.cereal.engines.CerealEngine#apply(java.io.Reader, java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public void apply(Reader reader, Object target) throws CerealException {
@@ -422,7 +422,7 @@ public abstract class AbstractCerealEngine implements CerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.CerealEngine#apply(java.io.File, java.lang.Object)
+     * @see com.comcast.cereal.engines.CerealEngine#apply(java.io.File, java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public void apply(File file, Object target) throws CerealException {

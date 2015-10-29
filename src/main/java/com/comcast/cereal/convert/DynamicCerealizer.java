@@ -41,7 +41,7 @@ public class DynamicCerealizer implements Cerealizer<Object, Object>, CerealFact
     /*
      * (non-Javadoc)
      * @see
-     * com.comcast.cvs.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cvs.cereal.CerealFactory
+     * com.comcast.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cereal.CerealFactory
      * )
      */
     public void setCerealFactory(CerealFactory cerealFactory) {
@@ -50,7 +50,7 @@ public class DynamicCerealizer implements Cerealizer<Object, Object>, CerealFact
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public Object cerealize(Object object, ObjectCache objectCache) throws CerealException {
@@ -91,7 +91,7 @@ public class DynamicCerealizer implements Cerealizer<Object, Object>, CerealFact
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public Object deCerealize(Object cereal, ObjectCache objectCache) throws CerealException {

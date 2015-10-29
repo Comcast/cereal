@@ -47,7 +47,7 @@ public class CerealizableCerealizer<J extends Cerealizable<C>, C> implements Cer
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public C cerealize(J object, ObjectCache objectCache) throws CerealException {
         if (null == object) {
@@ -63,7 +63,7 @@ public class CerealizableCerealizer<J extends Cerealizable<C>, C> implements Cer
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public J deCerealize(C cereal, ObjectCache objectCache) throws CerealException {
@@ -84,7 +84,7 @@ public class CerealizableCerealizer<J extends Cerealizable<C>, C> implements Cer
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cvs.cereal.CerealFactory)
+     * @see com.comcast.cereal.CerealFactoryAware#setCerealFactory(com.comcast.cereal.CerealFactory)
      */
     public void setCerealFactory(CerealFactory cerealFactory) {
         this.cerealFactory = cerealFactory;

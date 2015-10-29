@@ -78,7 +78,7 @@ public class CollectionCerealizer implements Cerealizer<Collection, Collection>,
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public Collection deCerealize(Collection cereal, ObjectCache objectCache) throws CerealException {
@@ -105,7 +105,7 @@ public class CollectionCerealizer implements Cerealizer<Collection, Collection>,
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public Collection cerealize(Collection object, ObjectCache objectCache) throws CerealException {

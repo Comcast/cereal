@@ -32,7 +32,7 @@ public class AnnotationDefaultTest {
 
 	@Test
 	public void testDefaultObjectClass() throws CerealException {
-		String json = "{\"lastAdopted\":{\"--class\":\"com.comcast.cvs.testclasses.Cat\",\"indoor\":false}}";
+		String json = "{\"lastAdopted\":{\"--class\":\"com.comcast.testclasses.Cat\",\"indoor\":false}}";
 		JsonCerealEngine engine = new JsonCerealEngine();
 		AnimalShelter shelter = engine.readFromString(json, AnimalShelter.class);
 		Animal la = shelter.getLastAdopted();
@@ -47,8 +47,8 @@ public class AnnotationDefaultTest {
 
 	@Test
 	public void testDefaultObjectClassNotUsed() throws CerealException {
-		String catJson = "{\"--class\":\"com.comcast.cvs.testclasses.Cat\",\"indoor\":false}";
-		String animalsJson = "[{\"--class\":\"com.comcast.cvs.testclasses.Cat\",\"indoor\":true}]";
+		String catJson = "{\"--class\":\"com.comcast.testclasses.Cat\",\"indoor\":false}";
+		String animalsJson = "[{\"--class\":\"com.comcast.testclasses.Cat\",\"indoor\":true}]";
 		String json = "{\"lastAdopted\":" + catJson + ",\"animals\":" + animalsJson + "}";
 		JsonCerealEngine engine = new JsonCerealEngine();
 		AnimalShelter shelter = engine.readFromString(json, AnimalShelter.class);

@@ -43,7 +43,7 @@ public class DefaultCerealizer<J, C> implements Cerealizer<J, C> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public C cerealize(J object, ObjectCache objectCache) throws CerealException {
         throw new CerealException(MESSAGE);
@@ -51,7 +51,7 @@ public class DefaultCerealizer<J, C> implements Cerealizer<J, C> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     public J deCerealize(C cereal, ObjectCache objectCache) throws CerealException {
         throw new CerealException(MESSAGE);

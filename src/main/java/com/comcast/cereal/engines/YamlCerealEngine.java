@@ -86,7 +86,7 @@ public class YamlCerealEngine extends AbstractCerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.AbstractCerealEngine#doWrite(java.io.OutputStream,
+     * @see com.comcast.cereal.engines.AbstractCerealEngine#doWrite(java.io.OutputStream,
      * java.lang.Object)
      */
     protected void doWrite(OutputStream outputStream, Object cereal) throws CerealException {
@@ -95,7 +95,7 @@ public class YamlCerealEngine extends AbstractCerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.AbstractCerealEngine#doWrite(java.io.Writer,
+     * @see com.comcast.cereal.engines.AbstractCerealEngine#doWrite(java.io.Writer,
      * java.lang.Object)
      */
     protected void doWrite(Writer writer, Object cereal) throws CerealException {
@@ -104,7 +104,7 @@ public class YamlCerealEngine extends AbstractCerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.AbstractCerealEngine#doRead(java.io.InputStream)
+     * @see com.comcast.cereal.engines.AbstractCerealEngine#doRead(java.io.InputStream)
      */
     protected Object doRead(InputStream inputStream) throws CerealException {
         return yaml.load(inputStream);
@@ -112,7 +112,7 @@ public class YamlCerealEngine extends AbstractCerealEngine {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.engines.AbstractCerealEngine#doRead(java.io.Reader)
+     * @see com.comcast.cereal.engines.AbstractCerealEngine#doRead(java.io.Reader)
      */
     protected Object doRead(Reader reader) throws CerealException {
         return yaml.load(reader);

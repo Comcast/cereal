@@ -44,7 +44,7 @@ public class DateCerealizer implements Cerealizer<Date, String> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public String cerealize(Date date, ObjectCache objectCache) throws CerealException {
         if (null == date) {
@@ -56,7 +56,7 @@ public class DateCerealizer implements Cerealizer<Date, String> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     public Date deCerealize(String cereal, ObjectCache objectCache) throws CerealException {
         if (null == cereal) {

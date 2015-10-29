@@ -52,7 +52,7 @@ public class ArrayCerealizer<T> implements Cerealizer<T[], List<?>> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public T[] deCerealize(List<?> cereal, ObjectCache objectCache) throws CerealException {
@@ -69,7 +69,7 @@ public class ArrayCerealizer<T> implements Cerealizer<T[], List<?>> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public List<?> cerealize(T[] array, ObjectCache objectCache) throws CerealException {

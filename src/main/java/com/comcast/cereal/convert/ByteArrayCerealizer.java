@@ -31,7 +31,7 @@ public class ByteArrayCerealizer implements Cerealizer<byte[], String> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     public byte[] deCerealize(String cereal, ObjectCache objectCache) throws CerealException {
         return Base64.decodeBase64(cereal);
@@ -39,7 +39,7 @@ public class ByteArrayCerealizer implements Cerealizer<byte[], String> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public String cerealize(byte[] object, ObjectCache objectCache) throws CerealException {
         return new String(Base64.encodeBase64(object, false));

@@ -64,7 +64,7 @@ public class FieldAccess extends CerealAccess {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.impl.CerealAccess#applyCereal(java.lang.Object, java.lang.Object)
+     * @see com.comcast.cereal.impl.CerealAccess#applyCereal(java.lang.Object, java.lang.Object)
      */
     public void applyCereal(Object cereal, Object target, ObjectCache objectCache) throws CerealException {
         try {
@@ -84,7 +84,7 @@ public class FieldAccess extends CerealAccess {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.impl.CerealAccess#getCereal(java.lang.Object)
+     * @see com.comcast.cereal.impl.CerealAccess#getCereal(java.lang.Object)
      */
     public Object getCereal(Object source, ObjectCache objectCache) throws CerealException {
         try {
@@ -108,7 +108,7 @@ public class FieldAccess extends CerealAccess {
     
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.impl.CerealAccess#getJavaType()
+     * @see com.comcast.cereal.impl.CerealAccess#getJavaType()
      */
     public Class getJavaType() {
         return field.getType();

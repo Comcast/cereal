@@ -29,7 +29,7 @@ public class SimpleCerealizer implements Cerealizer<Object, Object> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#deCerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#deCerealize(java.lang.Object)
      */
     public Object deCerealize(Object cereal, ObjectCache objectCache) throws CerealException {
         return cereal;
@@ -37,7 +37,7 @@ public class SimpleCerealizer implements Cerealizer<Object, Object> {
 
     /*
      * (non-Javadoc)
-     * @see com.comcast.cvs.cereal.Cerealizer#cerealize(java.lang.Object)
+     * @see com.comcast.cereal.Cerealizer#cerealize(java.lang.Object)
      */
     public Object cerealize(Object object, ObjectCache objectCache) throws CerealException {
         return object;

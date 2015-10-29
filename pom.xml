@@ -7,6 +7,8 @@
     <version>4.0-SNAPSHOT</version>
     <name>(Comcast) ${project.artifactId}</name>
     <inceptionYear>2012</inceptionYear>
+    <description>Cereal is for converting Java object to and from JSON / XML / YAML</description>
+    <url>https://github.com/Comcast/cereal</url>
     
     <organization>
         <name>Comcast</name>
@@ -24,14 +26,13 @@
     </developers>
     
     <properties>
-        <!-- Plugin Versions -->
-        <maven.javadoc.plugin.version>2.10.1</maven.javadoc.plugin.version>
-        <maven.plugin.license.version>2.11</maven.plugin.license.version>
+        <!-- Release Control -->
+        <autoReleaseAfterClose>false</autoReleaseAfterClose>
         
         <!-- Github Info -->
-        <git.url>github.comcast.com</git.url>
-        <git.org>cookery</git.org>
-        <git.repo>${project.artifactId}</git.repo>
+        <git.url>github.com</git.url>
+        <git.org>comcast</git.org>
+        <git.repo>cereal</git.repo>
     </properties>
     
     <scm>
@@ -80,7 +81,7 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>${maven.plugin.license.version}</version>
+                <version>2.11</version>
                 <configuration>
                     <header>LICENSE_TEMPLATE.txt</header>
                     <properties>
@@ -128,7 +129,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven.javadoc.plugin.version}</version>
+                        <version>2.10.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -141,7 +142,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven.gpg.version}</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -209,7 +210,7 @@
         <dependency>
             <groupId>com.comcast.pantry</groupId>
             <artifactId>pantry</artifactId>
-            <version>1.0.1</version>
+            <version>2.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>

@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import com.comcast.cereal.annotations.CerealClass;
 import com.comcast.cereal.convert.ArrayCerealizer;
@@ -30,7 +31,6 @@ import com.comcast.cereal.convert.DateCerealizer;
 import com.comcast.cereal.convert.DynamicCerealizer;
 import com.comcast.cereal.convert.EnumCerealizer;
 import com.comcast.cereal.convert.MapCerealizer;
-import com.comcast.cereal.convert.SimpleCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.BooleanCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.CharCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.DoubleCerealizer;
@@ -38,6 +38,7 @@ import com.comcast.cereal.convert.PrimitiveCerealizer.FloatCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.IntegerCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.LongCerealizer;
 import com.comcast.cereal.convert.PrimitiveCerealizer.ShortCerealizer;
+import com.comcast.cereal.convert.SimpleCerealizer;
 import com.comcast.cereal.engines.CerealEngine;
 
 /**
@@ -51,7 +52,7 @@ import com.comcast.cereal.engines.CerealEngine;
 public class CerealFactory {
 
     /* This is a mapping of types to cached base type and class cerealizers */
-    private final Map<Class<?>, Cerealizer<?, ?>> map;
+    private final Map<TypeSubtype, Cerealizer<?, ?>> map;
 
     /* This is a cache of instance objects for typed cerealizers */
     private final Map<Class<?>, Cerealizer<?, ?>> cache;
@@ -69,44 +70,44 @@ public class CerealFactory {
      */
     public CerealFactory() {
 
-        this.map = new HashMap<Class<?>, Cerealizer<?, ?>>();
+        this.map = new HashMap<TypeSubtype, Cerealizer<?, ?>>();
         this.cache = new HashMap<Class<?>, Cerealizer<?, ?>>();
 
         /* Insert the SimpleCeralizer for all the primitive types */
         final SimpleCerealizer sc = new SimpleCerealizer();
-        this.map.put(String.class, sc);
+        addCerealizer(String.class, sc);
         final BooleanCerealizer bc = new BooleanCerealizer();
-        this.map.put(boolean.class, bc);
-        this.map.put(Boolean.class, bc);
-        this.map.put(byte.class, sc);
-        this.map.put(Byte.class, sc);
+        addCerealizer(boolean.class, bc);
+        addCerealizer(Boolean.class, bc);
+        addCerealizer(byte.class, sc);
+        addCerealizer(Byte.class, sc);
         final CharCerealizer cs = new CharCerealizer();
-        this.map.put(char.class, cs);
-        this.map.put(Character.class, cs);
+        addCerealizer(char.class, cs);
+        addCerealizer(Character.class, cs);
         final ShortCerealizer shc = new ShortCerealizer();
-        this.map.put(short.class, shc);
-        this.map.put(Short.class, shc);
+        addCerealizer(short.class, shc);
+        addCerealizer(Short.class, shc);
         final IntegerCerealizer ic = new IntegerCerealizer();
-        this.map.put(int.class, ic);
-        this.map.put(Integer.class, ic);
+        addCerealizer(int.class, ic);
+        addCerealizer(Integer.class, ic);
         final LongCerealizer lc = new LongCerealizer();
-        this.map.put(long.class, lc);
-        this.map.put(Long.class, lc);
+        addCerealizer(long.class, lc);
+        addCerealizer(Long.class, lc);
         final FloatCerealizer fc = new FloatCerealizer();
-        this.map.put(float.class, fc);
-        this.map.put(Float.class, fc);
+        addCerealizer(float.class, fc);
+        addCerealizer(Float.class, fc);
         final DoubleCerealizer dbc = new DoubleCerealizer();
-        this.map.put(double.class, dbc);
-        this.map.put(Double.class, dbc);
+        addCerealizer(double.class, dbc);
+        addCerealizer(Double.class, dbc);
 
         /* If it is java.lang.Object, it should use the DynamicCerealizer */
         dc = new DynamicCerealizer();
         dc.setCerealFactory(this);
-        this.map.put(Object.class, dc);
+        addCerealizer(Object.class, dc);
 
         /* Add the DateCerealizer */
         final DateCerealizer dac = new DateCerealizer();
-        this.map.put(Date.class, dac);
+        addCerealizer(Date.class, dac);
 
         /* Cache the default cerealizers */
         this.cacheCerealizers(sc, bc, cs, shc, ic, lc, fc, dbc, dc, dac);
@@ -121,6 +122,26 @@ public class CerealFactory {
      * 
      * @param type
      *            the java type to convert to and from
+     *            
+     * @return the correct {@link Cerealizer}
+     * 
+     * @throws CerealException
+     *             if there is a problem instantiating the {@link ClassCerealizer} created for the
+     *             given type
+     */
+    public <J> Cerealizer<J, ?> getCerealizer(Class<J> type) throws CerealException {
+        return getCerealizer(type, null);
+    }
+
+    /**
+     * Get a cached version of a Cerealizer that is capable of converting to and from the specific
+     * java type.
+     * 
+     * @param type
+     *            the java type to convert to and from
+     * @param subtype
+     *            the java type to convert elements within a Collection to and from, type must be a subclass of Collection
+     * 
      * 
      * @return the correct {@link Cerealizer}
      * 
@@ -129,9 +150,10 @@ public class CerealFactory {
      *             given type
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public <J> Cerealizer<J, ?> getCerealizer(Class<J> type) throws CerealException {
-        if (map.containsKey(type)) {
-            return (Cerealizer<J, ?>) map.get(type);
+    public <J> Cerealizer<J, ?> getCerealizer(Class<J> type, Class<?> subtype) throws CerealException {
+        TypeSubtype typeSubtype = new TypeSubtype(type, subtype);
+        if (map.containsKey(typeSubtype)) {
+            return (Cerealizer<J, ?>) map.get(typeSubtype);
         }
         
         /* Handle use case where the class has the @CerealClass annotation */
@@ -165,9 +187,11 @@ public class CerealFactory {
         }
         
         if (Collection.class.isAssignableFrom(type)) {
-            CollectionCerealizer cerealizer = new CollectionCerealizer(dc, (Class<? extends Collection>) type);
+            /** If we were given a subtype, use that for the internal cerealizer for the collection */
+            Cerealizer elementCerealizer = subtype != null ? getCerealizer(subtype) : dc;
+            CollectionCerealizer cerealizer = new CollectionCerealizer(elementCerealizer, (Class<? extends Collection>) type);
 
-            map.put(type, cerealizer);
+            map.put(typeSubtype, cerealizer);
             cerealizer.setCerealFactory(this);
 
             return (Cerealizer<J, ?>) cerealizer;
@@ -177,14 +201,14 @@ public class CerealFactory {
             MapCerealizer mc = new MapCerealizer();
             mc.setMapClass((Class<? extends Map>) type);
             mc.setCerealFactory(this);
-            map.put(type, mc);
+            addCerealizer(type, mc);
             return (Cerealizer<J, ?>) mc;
         }
 
         if (Cerealizable.class.isAssignableFrom(type)) {
             CerealizableCerealizer cerealizer = new CerealizableCerealizer(type);
 
-            map.put(type, cerealizer);
+            addCerealizer(type, cerealizer);
             cerealizer.setCerealFactory(this);
 
             return cerealizer;
@@ -195,7 +219,7 @@ public class CerealFactory {
              * Need to insert the Cerealizer into the map before initializing because
              * self-referencing classes would otherwise infinitely recurse
              */
-            map.put(type, cerealizer);
+            addCerealizer(type, cerealizer);
 
             cerealizer.setCerealFactory(this);
             cerealizer.initialize();
@@ -209,9 +233,9 @@ public class CerealFactory {
      * @param cerealizers The list of cerealizers to cache
      */
     public void cacheCerealizers(Cerealizer<?, ?>... cerealizers) {
-    	for (Cerealizer<?, ?> cerealizer : cerealizers) {
-    		cacheCerealizer(cerealizer);
-    	}
+        for (Cerealizer<?, ?> cerealizer : cerealizers) {
+            cacheCerealizer(cerealizer);
+        }
     }
 
     /**
@@ -286,8 +310,44 @@ public class CerealFactory {
      * @param clazz The class that the cerealizer is for
      * @param cerealizer The cerealizer to use for the given class
      */
-    public <T> void addCerealizer(Class<T> clazz, Cerealizer<T, ?> cerealizer) {
-    	this.map.put(clazz, cerealizer);
+    public <T> void addCerealizer(Class<?> clazz, Cerealizer<?, ?> cerealizer) {
+        this.map.put(new TypeSubtype(clazz, null), cerealizer);
+    }
+    
+    /**
+     * Allows caching based on type and subtype pair
+     * @author Kevin Pearson
+     *
+     */
+    static class TypeSubtype {
+        private Class<?> type;
+        private Class<?> subtype;
+        
+        public TypeSubtype(Class<?> type, Class<?> subtype) {
+            this.type = type;
+            this.subtype = subtype;
+        }
+        
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result
+                    + ((subtype == null) ? 0 : subtype.hashCode());
+            result = prime * result + ((type == null) ? 0 : type.hashCode());
+            return result;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null) return false;
+            if (getClass() != obj.getClass()) return false;
+            TypeSubtype other = (TypeSubtype) obj;
+            if (!Objects.equals(type, other.type)) return false;
+            if (!Objects.equals(subtype, other.subtype)) return false;
+            return true;
+        }
+        
     }
 
 }

@@ -97,6 +97,16 @@ public @interface Cereal {
     Class<?> type() default void.class;
 
     /**
+     * If {@link Cereal#type()} is set to a Collection type, then subtype will give
+     * the java class the the elements inside the Collection should be.
+     * The main use case for this is when decerealizing a Map<String, List<T>>
+     * It is hard to know how to decerealize the elements in the list.
+     * 
+     * @return the java-type to assume when converting this object.
+     */
+    Class<?> subtype() default void.class;
+
+    /**
      * If set to <code>true</code>, this will throw an exception when de-cerealizing an object if
      * the source cereal did not contain a value for this {@link Field} or {@link Method}. This will
      * not fail however if it contains a <code>null</code> value, only if the entire key-value pair

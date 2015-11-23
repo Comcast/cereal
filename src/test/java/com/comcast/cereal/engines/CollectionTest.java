@@ -18,13 +18,18 @@ package com.comcast.cereal.engines;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.collections.Sets;
 
 import com.comcast.cereal.CerealException;
 import com.comcast.cereal.CerealSettings;
-import com.comcast.cereal.engines.JsonCerealEngine;
+import com.comcast.testclasses.StringWrapper;
+import com.comcast.testclasses.StringWrapperContainer;
 
 public class CollectionTest {
 
@@ -54,5 +59,31 @@ public class CollectionTest {
         engine.setSettings(settings);
         String cereal = engine.writeToString(coll);
     	Assert.assertEquals(cereal, "[\"kp\",\"is\",\"awesome\"]");		
+    }
+    
+    @Test
+    public void testCollectionContainingObjectAnnotatedWithCerealClass() throws CerealException {
+    	StringWrapperContainer container = new StringWrapperContainer();
+    	container.setWrappers(Arrays.asList(new StringWrapper("kp"), new StringWrapper(null)));
+    	Map<String, Set<StringWrapper>> wrapperMap = new HashMap<String, Set<StringWrapper>>();
+    	wrapperMap.put("1", Sets.newHashSet(Arrays.asList(new StringWrapper("mp"))));
+    	Map<String, Set<String>> wrapperMap2 = new HashMap<String, Set<String>>();
+    	wrapperMap2.put("y", Sets.newHashSet(Arrays.asList("x")));
+    	container.setWrapperMap(wrapperMap);
+    	container.setWrapperMapNoSubtype(wrapperMap2);
+    	
+    	JsonCerealEngine engine = new JsonCerealEngine();
+        CerealSettings settings = new CerealSettings();
+        settings.setIncludeClassName(false);
+        engine.setSettings(settings);
+        String cereal = engine.writeToString(container);
+        StringWrapperContainer decereal = engine.readFromString(cereal, StringWrapperContainer.class);
+        Collection<StringWrapper> wrappers = new ArrayList<StringWrapper>(decereal.getWrappers());
+        wrappers.addAll(decereal.getWrapperMap().get("1"));
+        Assert.assertEquals(wrappers.size(), 3);
+        for (Object obj : wrappers) {
+        	Assert.assertEquals(obj.getClass(), StringWrapper.class);
+        }
+        Assert.assertEquals(decereal, container);
     }
 }

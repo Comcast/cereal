@@ -130,7 +130,7 @@ public class CerealFactory {
      *             given type
      */
     public <J> Cerealizer<J, ?> getCerealizer(Class<J> type) throws CerealException {
-    	return getCerealizer(type, null);
+        return getCerealizer(type, null);
     }
 
     /**
@@ -151,7 +151,7 @@ public class CerealFactory {
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public <J> Cerealizer<J, ?> getCerealizer(Class<J> type, Class<?> subtype) throws CerealException {
-    	TypeSubtype typeSubtype = new TypeSubtype(type, subtype);
+        TypeSubtype typeSubtype = new TypeSubtype(type, subtype);
         if (map.containsKey(typeSubtype)) {
             return (Cerealizer<J, ?>) map.get(typeSubtype);
         }
@@ -187,8 +187,8 @@ public class CerealFactory {
         }
         
         if (Collection.class.isAssignableFrom(type)) {
-        	/** If we were given a subtype, use that for the internal cerealizer for the collection */
-        	Cerealizer elementCerealizer = subtype != null ? getCerealizer(subtype) : dc;
+            /** If we were given a subtype, use that for the internal cerealizer for the collection */
+            Cerealizer elementCerealizer = subtype != null ? getCerealizer(subtype) : dc;
             CollectionCerealizer cerealizer = new CollectionCerealizer(elementCerealizer, (Class<? extends Collection>) type);
 
             map.put(typeSubtype, cerealizer);
@@ -233,9 +233,9 @@ public class CerealFactory {
      * @param cerealizers The list of cerealizers to cache
      */
     public void cacheCerealizers(Cerealizer<?, ?>... cerealizers) {
-    	for (Cerealizer<?, ?> cerealizer : cerealizers) {
-    		cacheCerealizer(cerealizer);
-    	}
+        for (Cerealizer<?, ?> cerealizer : cerealizers) {
+            cacheCerealizer(cerealizer);
+        }
     }
 
     /**
@@ -311,7 +311,7 @@ public class CerealFactory {
      * @param cerealizer The cerealizer to use for the given class
      */
     public <T> void addCerealizer(Class<?> clazz, Cerealizer<?, ?> cerealizer) {
-    	this.map.put(new TypeSubtype(clazz, null), cerealizer);
+        this.map.put(new TypeSubtype(clazz, null), cerealizer);
     }
     
     /**
@@ -320,34 +320,34 @@ public class CerealFactory {
      *
      */
     static class TypeSubtype {
-    	private Class<?> type;
-    	private Class<?> subtype;
-    	
-		public TypeSubtype(Class<?> type, Class<?> subtype) {
-			this.type = type;
-			this.subtype = subtype;
-		}
-		
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result
-					+ ((subtype == null) ? 0 : subtype.hashCode());
-			result = prime * result + ((type == null) ? 0 : type.hashCode());
-			return result;
-		}
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj) return true;
-			if (obj == null) return false;
-			if (getClass() != obj.getClass()) return false;
-			TypeSubtype other = (TypeSubtype) obj;
-			if (!Objects.equals(type, other.type)) return false;
-			if (!Objects.equals(subtype, other.subtype)) return false;
-			return true;
-		}
-    	
+        private Class<?> type;
+        private Class<?> subtype;
+        
+        public TypeSubtype(Class<?> type, Class<?> subtype) {
+            this.type = type;
+            this.subtype = subtype;
+        }
+        
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result
+                    + ((subtype == null) ? 0 : subtype.hashCode());
+            result = prime * result + ((type == null) ? 0 : type.hashCode());
+            return result;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null) return false;
+            if (getClass() != obj.getClass()) return false;
+            TypeSubtype other = (TypeSubtype) obj;
+            if (!Objects.equals(type, other.type)) return false;
+            if (!Objects.equals(subtype, other.subtype)) return false;
+            return true;
+        }
+        
     }
 
 }

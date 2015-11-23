@@ -281,7 +281,7 @@ public class ClassCerealizer<J extends Object> implements Cerealizer<J, Map<Stri
                 cerealizerOverride = true;
                 cerealizer = newCerealizer(info.cerealizer());
             } else if (void.class != info.type()) {
-            	Class<?> subtype = void.class.equals(info.subtype()) ? null : info.subtype();
+                Class<?> subtype = void.class.equals(info.subtype()) ? null : info.subtype();
                 cerealizer = cerealFactory.getCerealizer(info.type(), subtype);
             }
         }

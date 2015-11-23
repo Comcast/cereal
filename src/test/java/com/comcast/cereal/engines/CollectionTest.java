@@ -63,16 +63,16 @@ public class CollectionTest {
     
     @Test
     public void testCollectionContainingObjectAnnotatedWithCerealClass() throws CerealException {
-    	StringWrapperContainer container = new StringWrapperContainer();
-    	container.setWrappers(Arrays.asList(new StringWrapper("kp"), new StringWrapper(null)));
-    	Map<String, Set<StringWrapper>> wrapperMap = new HashMap<String, Set<StringWrapper>>();
-    	wrapperMap.put("1", Sets.newHashSet(Arrays.asList(new StringWrapper("mp"))));
-    	Map<String, Set<String>> wrapperMap2 = new HashMap<String, Set<String>>();
-    	wrapperMap2.put("y", Sets.newHashSet(Arrays.asList("x")));
-    	container.setWrapperMap(wrapperMap);
-    	container.setWrapperMapNoSubtype(wrapperMap2);
-    	
-    	JsonCerealEngine engine = new JsonCerealEngine();
+        StringWrapperContainer container = new StringWrapperContainer();
+        container.setWrappers(Arrays.asList(new StringWrapper("kp"), new StringWrapper(null)));
+        Map<String, Set<StringWrapper>> wrapperMap = new HashMap<String, Set<StringWrapper>>();
+        wrapperMap.put("1", Sets.newHashSet(Arrays.asList(new StringWrapper("mp"))));
+        Map<String, Set<String>> wrapperMap2 = new HashMap<String, Set<String>>();
+        wrapperMap2.put("y", Sets.newHashSet(Arrays.asList("x")));
+        container.setWrapperMap(wrapperMap);
+        container.setWrapperMapNoSubtype(wrapperMap2);
+        
+        JsonCerealEngine engine = new JsonCerealEngine();
         CerealSettings settings = new CerealSettings();
         settings.setIncludeClassName(false);
         engine.setSettings(settings);
@@ -82,7 +82,7 @@ public class CollectionTest {
         wrappers.addAll(decereal.getWrapperMap().get("1"));
         Assert.assertEquals(wrappers.size(), 3);
         for (Object obj : wrappers) {
-        	Assert.assertEquals(obj.getClass(), StringWrapper.class);
+            Assert.assertEquals(obj.getClass(), StringWrapper.class);
         }
         Assert.assertEquals(decereal, container);
     }

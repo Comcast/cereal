@@ -1,4 +1,13 @@
-cereal
+Cereal
 ======
 
-Project for converting Java object to and from JSON / XML / YAML
+[http://comcast.github.io/cereal/](http://comcast.github.io/cereal/)
+
+##Summary
+
+Cereal is for converting Java objects to and from JSON / XML / YAML
+
+![Cereal](http://comcast.github.io/cereal/images/cereal-shield.png)
+
+##Submitting issues
+Please file a github issue for any problems or feature requests (or better yet, submit a pull request!)

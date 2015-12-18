@@ -1,6 +1,8 @@
 Cereal
 ======
 
+[![Build Status](https://travis-ci.org/Comcast/cereal.svg)](https://travis-ci.org/Comcast/cereal)
+
 [http://comcast.github.io/cereal/](http://comcast.github.io/cereal/)
 
 ##Summary

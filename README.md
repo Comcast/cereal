@@ -1,4 +1,4 @@
-Cereal
+Cereal - This project is no longer actively maintained. 
 ======
 
 [![Build Status](https://travis-ci.org/Comcast/cereal.svg)](https://travis-ci.org/Comcast/cereal)
